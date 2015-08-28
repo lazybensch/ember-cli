@@ -4,6 +4,14 @@
 // Provide a title to the process in `ps`
 process.title = 'ember';
 
+try {
+  var Completer = require('../lib/models/cli-command-completer');
+  var completer = new Completer();
+  completer.run();
+} catch(e) {
+  //never fail on shell completion
+}
+
 var resolve = require('resolve');
 var exit = require('exit');
 
